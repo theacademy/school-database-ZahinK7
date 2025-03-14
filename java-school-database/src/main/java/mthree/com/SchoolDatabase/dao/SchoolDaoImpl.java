@@ -53,7 +53,7 @@ public class SchoolDaoImpl implements SchoolDao {
 
          String sql = "SELECT course.courseCode, course.courseDesc " +
                       "FROM course " +
-                      "JOIN teacher ON course.teacherId = teacher.tid " +
+                      "INNER JOIN teacher ON course.teacherId = teacher.tid " +
                       "WHERE teacher.dept ='Computer Science'";
 
         // YOUR CODE ENDS HERE
@@ -95,7 +95,7 @@ public class SchoolDaoImpl implements SchoolDao {
         // Need to add in the sid for Robert Dylan.  Use sid: 123
         // YOUR CODE STARTS HERE
 
-        String sql = "";
+        String sql = "INSERT INTO student (sid, fName, lName) VALUES (123,'Robert','Dylan')";
 
         // YOUR CODE ENDS HERE
          System.out.println(jdbcTemplate.update(sql));
@@ -108,7 +108,7 @@ public class SchoolDaoImpl implements SchoolDao {
         // You will need to include a sid in your query.  Use 123
         // YOUR CODE STARTS HERE
 
-        String sql = "";
+        String sql = "INSERT INTO course_student (student_id,course_id) VALUES (123,1)";
 
         // YOUR CODE ENDS HERE
         jdbcTemplate.update(sql);
